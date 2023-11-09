@@ -1,7 +1,10 @@
+import path from 'path';
 import multipart from '@fastify/multipart';
+import fastifyStatic from '@fastify/static';
 import { createApp } from '@/framework';
 import { services } from './service';
 import { db } from './db';
+import { FastifyReply, FastifyRequest } from 'fastify';
 
 const app = createApp();
 
@@ -9,6 +12,19 @@ const app = createApp();
   db.init();
 
   app.register(multipart, { attachFieldsToBody: true });
+
+  const rootDirectory = path.resolve(__dirname, '..');
+
+  app.register(fastifyStatic, {
+    root: path.join(rootDirectory, 'public', 'files'), // Specify the root directory
+    prefix: '/files/',
+  });
+
+  app.get('/audio/:filename', function (req: FastifyRequest, reply: FastifyReply) {
+    const params = req.params as any;
+
+    reply.sendFile(params.filename);
+  });
 
   app.registerServices(services);
 

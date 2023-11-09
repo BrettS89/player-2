@@ -107,14 +107,14 @@ export class Service {
   async remove(request: FastifyRequest) {
     const req = await executeBeforeHooks({
       request,
-      method: 'patch',
+      method: 'remove',
       hooks: this.hooks,
     });
 
     const data = await this.provider.remove?.(req);
 
     const res = await executeAfterHooks({
-      method: 'patch',
+      method: 'remove',
       hooks: this.hooks,
       result: data,
       request,

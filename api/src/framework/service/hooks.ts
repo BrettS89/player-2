@@ -6,13 +6,13 @@ import { app } from '@/app';
 
 interface BeforeHooksProps {
   hooks: Hooks;
-  method: 'get' | 'find' | 'create' | 'patch';
+  method: 'get' | 'find' | 'create' | 'patch' | 'remove';
   request: FastifyRequest;
 }
 
 interface AfterHooksProps {
   hooks: Hooks;
-  method: 'get' | 'find' | 'create' | 'patch';
+  method: 'get' | 'find' | 'create' | 'patch' | 'remove';
   request: FastifyRequest;
   result: any;
 }

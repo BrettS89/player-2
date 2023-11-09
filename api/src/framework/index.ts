@@ -11,11 +11,11 @@ const fastify = Fastify({
 
 const app = {
   ...fastify,
-  get,
+  getConfig: get,
   set,
   registerServices,
   service(name: string) {
-    const service = this.get(name);
+    const service = this.getConfig(name);
 
     if (!service) {
       throw new NotFoundError('No service exists with this name');

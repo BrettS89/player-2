@@ -28,7 +28,7 @@ export class Provider {
     const extension = fileTypeMap[body.file.mimetype];
     const fileName = `${uuid()}.${extension}`;
 
-    fs.writeFileSync(`./src/files/${fileName}`, await body.file.toBuffer());
+    fs.writeFileSync(`./public/files/${fileName}`, await body.file.toBuffer());
 
     const fileData = {
       name: fileName,
