@@ -30,6 +30,10 @@ class Db {
 
     const obj = JSON.parse(data);
 
+    if (Array.isArray(obj[name])) {
+      return;
+    }
+
     obj[name] = [];
 
     fs.writeFileSync('./src/db/data.json', JSON.stringify(obj));
@@ -190,7 +194,13 @@ class Db {
   }
 
   public clearDb() {
-    fs.writeFileSync('./src/db/data.json', JSON.stringify({}));
+    const obj = this.getData();
+
+    Object.keys(obj).forEach(k => {
+      obj[k] = [];
+    })
+
+    fs.writeFileSync('./src/db/data.json', JSON.stringify(obj));
   }
   
 }

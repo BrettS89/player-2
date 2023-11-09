@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
     'integration',
   ],
   setupFilesAfterEnv: [
-    '<rootDir>/src.test/unit-setup.ts',
+    '<rootDir>/src/test/unit-setup.ts',
   ],
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
