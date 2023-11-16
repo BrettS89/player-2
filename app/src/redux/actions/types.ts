@@ -1,0 +1,24 @@
+export enum ActionTypes {
+  ON_APP_LOAD = 'ON_APP_LOAD',
+  ON_LOGIN = 'ON_LOGIN',
+  SUBMIT_PASSWORD_RESET_REQUEST = 'SUBMIT_PASSWORD_RESET_REQUEST',
+  SET_CAN_RESET_PASSWORD = 'SET_CAN_RESET_PASSWORD',
+  ON_RESET_PASSWORD = 'ON_RESET_PASSWORD',
+  SET_APP_INITIALIZED = 'APP_INITIALIZED',
+  SET_APP_LOADING = 'SET_APP_LOADING',
+  SET_APP_ERROR = 'SET_APP_ERROR',
+  SET_APP_INFO = 'SET_APP_INFO',
+  CLOSE_SNACKBAR = 'CLOSE_SNACKBAR',
+
+  SET_TRACKS = 'SET_TRACKS',
+  SET_TRACK_PLAYING = 'SET_TRACK_PLAYING',
+  ON_UPLOAD_TRACK = 'ON_UPLOAD_TRACK',
+}
+
+interface ActionReturn<T> {
+  type: string;
+  payload: T;
+}
+
+export type Action<T> = (payload: T) => ActionReturn<T>;
+export type ActionNoPayload = () => { type: string }

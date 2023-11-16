@@ -24,7 +24,6 @@ export class Provider {
 
   async create(request: CustomFastifyRequest) {
     const body = request.body as any;
-
     const extension = fileTypeMap[body.file.mimetype];
     const fileName = `${uuid()}.${extension}`;
 

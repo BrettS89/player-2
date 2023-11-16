@@ -11,7 +11,6 @@ export const validate: ValidateFn = (schema) => {
     const valid = ajv.validate(schema, request.body);
 
     if (!valid) {
-      console.log(ajv.errors);
       throw new BadRequestError(ajv.errors?.[0].message);
     }
 

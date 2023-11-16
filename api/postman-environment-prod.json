@@ -1,0 +1,14 @@
+{
+	"id": "872b102e-dbef-40c8-8cce-2a730816d2ec",
+	"name": "player2-prod",
+	"values": [
+		{
+			"key": "PLAYER2_API_URL",
+			"value": "https://bls.ngrok.io/player2-api",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2023-11-09T20:07:12.786Z",
+	"_postman_exported_using": "Postman/10.19.17"
+}

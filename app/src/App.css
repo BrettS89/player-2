@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.App-main {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  flex-direction: column;  
+}
+
+.css-1o50bed-MuiPaper-root-MuiDialog-paper {
+  overflow: visible!important;
+}
