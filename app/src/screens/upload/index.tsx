@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { uploadTrack } from '../../redux';
 import MainTemplate from '../../components/template/main';
 import Input from '@mui/joy/Input';
@@ -13,6 +14,7 @@ const UploadTrack = () => {
   const [file, setFile] = useState<File | null>();
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onUpload = () => {
     if (!artist || !title || !file) return;
@@ -21,6 +23,7 @@ const UploadTrack = () => {
       artist,
       title,
       file,
+      callback: () => navigate('/'),
     }))
   };
 

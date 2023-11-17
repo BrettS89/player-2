@@ -11,7 +11,7 @@ export const setTrackPlaying: Action<Track> = (payload) => ({
   payload,
 });
 
-export const uploadTrack: Action<{ artist: string; title: string; file: File }> = (payload) => ({
+export const uploadTrack: Action<{ artist: string; title: string; file: File; callback: Function }> = (payload) => ({
   type: ActionTypes.ON_UPLOAD_TRACK,
   payload,
 });
