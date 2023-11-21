@@ -15,7 +15,12 @@ const app = createApp();
   app.register(fastifyCors)
   app.register(multipart, { attachFieldsToBody: true });
 
-  const rootDirectory = path.resolve(__dirname, '..');
+  let rootDirectory = path.resolve(__dirname, '..');
+
+  if (rootDirectory.includes('lib')) {
+    rootDirectory = rootDirectory.replace(/lib/, '');
+  }
+  console.log(rootDirectory);
 
   app.register(fastifyStatic, {
     root: path.join(rootDirectory, 'public', 'files'),
